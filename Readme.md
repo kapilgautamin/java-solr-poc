@@ -1,8 +1,3 @@
-Utilize spring data Apache solr sample(https://spring.io/projects/spring-data-solr#samples) to create POC.
-
-Configure vscode using the link: https://code.visualstudio.com/docs/java/java-spring-boot
-
-
 Step to use Data-import-handler of Solr for SQL server.
 1. Download the MS SQL JDBC driver https://docs.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver15. Extract and copy the sql driver library(eg. `mssql-jdbc-8.4.1.jre8.jar`) in the following location `solr-8.5.1\server\lib\`
 
@@ -53,7 +48,9 @@ Note: The entity can be direclty modeled similar to the SQL query as you like. J
 10. Check the indexed documents in the `Overview` tab under the `person` core. 
 
 ############################################################################
-Read only in case you do not have a SQL server authentication method for for SQL server management studio.
+
+Read only in case you do not have a SQL server authentication method from SQL server management studio.
+
 1. You will have a way to login through the Windows authentication way for now. Login using that.
 2. Once you have connected to the server, you can now create a SQL authentication method for data-import-handler of Solr.
 3. Right click on your server name, and open the last option `Properties`. In the dialogue box that opens, on the left-side pane, go to `Security` page, and select the   `SQL Server and Windows Authentication mode` and click OK.
@@ -66,17 +63,24 @@ Read only in case you do not have a SQL server authentication method for for SQL
 10. Now disconnect and try to re-login using the SQL server authentication. This will serve you well for the data-source option for the data-import handler configuration file(`db-poc-config.xml`).
 
 Possible errors while doing above:
-1. `A connection was successfully established with the server, but then an error occurred
-during the login process. (provider: Shared Memory Provider, error: 0 - No process is
-on the other end of the pipe.)`
-Refer: 
+```
+A connection was successfully established with the server, but then an error occurred
+during the login process. (provider: Shared Memory Provider, error: 0 - No process is 
+on the other end of the pipe.)
+```
+Refer for the above error: 
+
 a.) https://stackoverflow.com/questions/27267658/no-process-is-on-the-other-end-of-the-pipe-sql-server-2012
+
 b.) https://www.mytecbits.com/microsoft/sql-server/where-is-sql-server-configuration-manager
+
 c.) https://stackoverflow.com/questions/33590030/the-tcp-ip-connection-to-the-host-localhost-port-1433-has-failed-error-need-as
 
-Reference articles:
+Reference articles for SQL server authentication method from SQL server management studio.:
+
 1. https://lucene.apache.org/solr/guide/8_0/uploading-structured-data-store-data-with-the-data-import-handler.html#uploading-structured-data-store-data-with-the-data-import-handler
 2. https://docs.microsoft.com/en-us/sql/connect/jdbc/building-the-connection-url?view=sql-server-ver15
 3. https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/change-server-authentication-mode?view=sql-server-ver15
-3. https://akshaybarve.wordpress.com/2017/11/15/loading-data-from-sql-server-to-solr-with-a-data-import-handler/
+4. https://akshaybarve.wordpress.com/2017/11/15/loading-data-from-sql-server-to-solr-with-a-data-import-handler/
+
 ############################################################################
