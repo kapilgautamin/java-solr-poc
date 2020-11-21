@@ -22,7 +22,7 @@ public class CustomersService {
 		return customers;
 	}
 	
-	public Optional<Customers> getCustomer(int customerID)
+	public Optional<Customers> getCustomer(String customerID)
 	{
 		return _customerRepository.findById(customerID);
 	}

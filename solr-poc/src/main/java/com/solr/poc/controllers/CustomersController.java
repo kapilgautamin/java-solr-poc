@@ -48,7 +48,7 @@ public class CustomersController {
 	}
 	
 	@GetMapping(value = "/customers/{customerID}")
-	public Optional<Customers> getCustomer(@PathVariable int customerID)
+	public Optional<Customers> getCustomer(@PathVariable String customerID)
 	{
 		var customer = _customersService.getCustomer(customerID);
 		return customer;
