@@ -211,3 +211,44 @@ body {
     
   }
  }
+
+ span.twitter-typeahead {
+  display: block !important;
+  position: absolute;
+  height: 100%;
+}
+
+.tt-menu {
+  width: 30%;
+  margin-left: 35%;
+  padding: 8px 0;
+  background-color: #FFF;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 4px;
+   -moz-border-radius: 4px;
+      border-radius: 4px;
+  -webkit-box-shadow: 0 1px 10px rgba(0,0,0,.1);
+   -moz-box-shadow: 0 1px 10px rgba(0,0,0,.1);
+      box-shadow: 0 1px 10px rgba(0,0,0,.1);
+
+}
+
+.tt-suggestion {
+  padding: 3px 20px;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.tt-suggestion:hover {
+  cursor: pointer;
+  color: #FFF;
+  background-color: #0097cf;
+}
+
+.tt-suggestion.tt-cursor {
+  color: #fff;
+  background-color: #0097cf;
+
+}
+
+#top-search form input.form-control.tt-hint { color: #999 !important; }

@@ -25,7 +25,8 @@
   <div class="form">
     <form action="/results" method="post">
       <label for="form-search"></label>
-      <input type="text" id="form-search" name="content" placeholder="Search customers,products..."/>
+      <input type="text" id="form-search" name="content" class="typeahead" 
+      placeholder="Search customers,products..." autocomplete="off"/>
       <div class="buttons">
         <input type="submit" value="Search" id="google_search">
       </div>
@@ -47,6 +48,9 @@
       <li><a href="#">Settings</a></li>
     </ul>
   </footer>
+  <script src="js/jquery.js"></script>
+  <script src="js/typehead.js"></script>
+  <script src="js/autocomplete.js"></script>
 </body>
 
 </html>
