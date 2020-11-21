@@ -1,7 +1,7 @@
 package com.solr.poc.entities;
 
-import org.apache.solr.client.solrj.beans.Field;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.solr.core.mapping.Indexed;
 import org.springframework.data.solr.core.mapping.SolrDocument;
 
 import lombok.Data;
@@ -10,16 +10,16 @@ import lombok.Data;
 @SolrDocument(collection = "products")
 public class Products {
 	@Id
-	@Field
-	private int productID;
+	@Indexed(name = "id", type = "string")
+	private String productID;
 
-	@Field
+	@Indexed(name = "name", type = "string")
 	private String name;
 	
-	@Field
+	@Indexed(name = "productNumber", type = "string")
 	private String productNumber;
 	
-	public Products(int productID, String name, String productNumber) {
+	public Products(String productID, String name, String productNumber) {
 		super();
 		this.productID = productID;
 		this.name = name;
