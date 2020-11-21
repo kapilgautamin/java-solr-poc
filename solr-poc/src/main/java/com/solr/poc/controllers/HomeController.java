@@ -15,12 +15,12 @@ public class HomeController {
    @Autowired
    private CustomersService _customersService;
    
+   private final int DEFAULT_PAGE_SIZE = 10;
+   
 	@GetMapping("/index") 
    public String index() {
       return "index";
    }
-
-   private final int DEFAULT_PAGE_SIZE = 10;
 
    @PostMapping(value = "/results")   
    public String indexSubmit(@RequestParam String content, Model model) {
@@ -28,4 +28,5 @@ public class HomeController {
       model.addAttribute("output", _customersService.findByNamedQuery(content, PageRequest.of(0, DEFAULT_PAGE_SIZE)));
       return "results";
    }
+
 }

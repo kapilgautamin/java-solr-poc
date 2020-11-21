@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 
 <head>
-  <title>Google Homepage</title>
+  <title>Search Homepage</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet" />
+  <link rel="stylesheet" "css/jquery-ui.css" type="text/css" />
+    <link rel="stylesheet" href="css/jquery-ui.theme.css" type="text/css" />
+    <link rel="stylesheet" href="css/jquery-ui.structure.css" type="text/css" />
+  <link rel="stylesheet" href="css/styles.css" type="text/css" />
 </head>
 
 <body>
@@ -23,10 +26,9 @@
   </div>
 
   <div class="form">
-    <form action="/results" method="post">
+    <form action="/results" method="post" class="ui-widget">
       <label for="form-search"></label>
-      <input type="text" id="form-search" name="content" class="typeahead" 
-      placeholder="Search customers,products..." autocomplete="off"/>
+      <input type="text" id="form-search" name="content" class="search-bar" placeholder="Search customers,products..." autocomplete="off"/>
       <div class="buttons">
         <input type="submit" value="Search" id="google_search">
       </div>
@@ -49,7 +51,7 @@
     </ul>
   </footer>
   <script src="js/jquery.js"></script>
-  <script src="js/typehead.js"></script>
+  <script src="js/jquery-ui.js"></script>
   <script src="js/autocomplete.js"></script>
 </body>
 
