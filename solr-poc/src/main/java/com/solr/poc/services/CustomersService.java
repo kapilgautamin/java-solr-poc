@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.solr.poc.entities.Customers;
@@ -27,6 +29,10 @@ public class CustomersService {
 		return _customerRepository.findById(customerID);
 	}
 	
+	public Page<Customers> findByNamedQuery(String searchTerm, Pageable pageable){
+		return _customerRepository.findByNamedQuery(searchTerm, pageable);
+	}
+
 	public void addCustomer(Customers customer)
 	{
 		_customerRepository.save(customer);
