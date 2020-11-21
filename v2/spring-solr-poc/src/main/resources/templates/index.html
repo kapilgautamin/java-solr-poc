@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search Homepage</title>
+	
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	
+	<link rel="stylesheet" href="css/jquery-ui.css" type="text/css" />
+    <link rel="stylesheet" href="css/jquery-ui.theme.css" type="text/css" />
+    <link rel="stylesheet" href="css/jquery-ui.structure.css" type="text/css" />
+	<link rel="stylesheet" href="css/styles.css" type="text/css" />
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul id="nav_bar">
+        <li class="nav-links" id="gmail"><a href="#">Gmail</a></li>
+        <li class="nav-links"><a href="#">Images</a></li>
+        <li id="sign_in"><a href="#">Sign In</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- IMG -->
+  <div class="google">
+    <a href="#" id="google_logo"><img src="images/cazton.png" alt=" photo google-logo_zpspkcztsjo.png" /></a>
+  </div>
+
+  <div class="form">
+    <form action="/results" method="post" class="ui-widget">
+      <label for="form-search"></label>
+      <input type="text" id="form-search" name="content" class="search-bar" placeholder="Search customers,products..." autocomplete="off"/>
+      <div class="buttons">
+        <input type="submit" value="Search" id="google_search">
+      </div>
+    </form>
+  </div>
+
+
+
+  <!-- FOOTER -->
+  <footer>
+    <ul class="footer-left">
+      <li><a href="#">Advertising</a></li>
+      <li><a href="#">Business</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+    <ul class="footer-right">
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Terms</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </footer>
+  
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/autocomplete.js"></script>
+</body>
+</html>
