@@ -2,6 +2,9 @@
 
 <head>
   <title> Recreate Google Search Page</title>
+  <link rel="stylesheet" "css/jquery-ui.css" type="text/css" />
+  <link rel="stylesheet" href="css/jquery-ui.theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/jquery-ui.structure.css" type="text/css" />
   <link href="css/results.css" rel="stylesheet" />
 
 </head>
@@ -18,7 +21,7 @@
       <form action="/results" method="post">
         <img class="tennis" src="images/cazton_transparent.png" alt="">
         <label for="form-search"></label>
-        <input class="search-box" size="48" type="text" name="content" placeholder="Search customers,products..."/>
+        <input class="search-box" id="form-search" size="48" type="text" name="content" placeholder="Search customers,products..." autocomplete="off"/>
         <button type="submit" value="Search"></button>
       </form>
       <!-- <input class="search-box" type="text" size="48"> -->
@@ -129,6 +132,9 @@
   <!-- .footer -->
   </div>
   <!-- .wrapper -->
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/autocomplete.js"></script>
 </body>
 
 </html>
