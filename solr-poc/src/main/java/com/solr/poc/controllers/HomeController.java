@@ -1,4 +1,4 @@
-package com.solr.poc.entities.controllers;
+package com.solr.poc.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

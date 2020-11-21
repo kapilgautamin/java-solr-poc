@@ -1,4 +1,4 @@
-package com.solr.poc.entities.controllers;
+package com.solr.poc.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
