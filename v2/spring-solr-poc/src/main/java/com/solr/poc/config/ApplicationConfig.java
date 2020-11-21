@@ -22,7 +22,8 @@ public class ApplicationConfig {
     @Bean
     public HttpSolrClientFactoryBean solrServerFactoryBean() {
     	HttpSolrClientFactoryBean factoryBean = new HttpSolrClientFactoryBean();
-    	factoryBean.setUrl(PROPERTY_NAME_SOLR_SERVER_URL);
+    	String solrServerURL = environment.getRequiredProperty(PROPERTY_NAME_SOLR_SERVER_URL);
+    	factoryBean.setUrl(solrServerURL);
         return factoryBean;
     }
 

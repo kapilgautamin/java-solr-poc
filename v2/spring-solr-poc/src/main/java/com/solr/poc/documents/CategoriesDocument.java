@@ -14,15 +14,15 @@ import lombok.NoArgsConstructor;
 @SolrDocument(collection = "categories")
 public class CategoriesDocument {
 	@Id
-	@Indexed(readonly = true, required = false)
+	@Indexed(value = "Id", name = "Id")
 	private int id;
 	
-	@Indexed(required = true, value = "category", name = "category")
+	@Indexed(required = true, value = "Category", name = "Category")
 	private String category;
 	
-	@Indexed(required = true, value = "category_url", name = "category_url")
+	@Indexed(required = true, value = "Url", name = "Url")
 	private String url;
 	
-	@Indexed(value = "category_description", name = "category_description")
+	@Indexed(value = "Description", name = "Description")
 	private String description;
 }

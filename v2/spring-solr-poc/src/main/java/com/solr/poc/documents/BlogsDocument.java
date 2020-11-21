@@ -14,12 +14,12 @@ import lombok.NoArgsConstructor;
 @SolrDocument(collection = "blogs")
 public class BlogsDocument {
 	@Id
-	@Indexed(readonly = true, required = false)
+	@Indexed(value = "Id", name = "Id")
 	private int id;
 	
-	@Indexed(required = true, value = "name", name = "name")
+	@Indexed(required = true, value = "Name", name = "Name")
 	private String name;
 	
-	@Indexed(required = true, value = "url", name = "url")
+	@Indexed(required = true, value = "Link", name = "Link")
 	private String url;
 }
