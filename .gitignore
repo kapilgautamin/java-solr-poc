@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+solr-poc/replay_pid1964.log
+solr-poc/hs_err_pid1964.log
