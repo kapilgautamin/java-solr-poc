@@ -8191,7 +8191,7 @@ $.widget( "ui.autocomplete", {
 					} );
 				}
 
-				if ( false !== this._trigger( "select", event, { item: item } ) ) {
+				if ( item && false !== this._trigger( "select", event, { item: item } ) ) {
 					this._value( item.value );
 				}
 

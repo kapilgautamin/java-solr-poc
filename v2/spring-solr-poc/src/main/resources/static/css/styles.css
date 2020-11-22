@@ -66,17 +66,17 @@ body {
    text-align: center;
  }
  
- #form-search { 
+ #search { 
    width: 450px;
    line-height: 32px;
    padding: 20px 10px;
  }
  
- .form #form-search {
+ .form #search {
    padding: 0 8px;
  }
  
- /*#form-search:hover {
+ /*#search:hover {
    border-color: #e4e4e4;
    padding-top: 0;
  }*/
@@ -134,7 +134,7 @@ body {
     display: none;
   }
    
-  #form-search {
+  #search {
     width: 80%;
  
   }
@@ -178,7 +178,7 @@ body {
     display: none;
   }
    
-  #form-search {
+  #search {
     width: 80%;
  
   }
@@ -215,4 +215,20 @@ body {
 
  .ui-autocomplete-loading {
   background: white url("/images/ui-anim_basic_16x16.gif") right center no-repeat;
+}
+
+.ui-autocomplete-category {
+    font-weight: bold;
+    padding: .2em .4em;
+    margin: .8em 0 .2em;
+    line-height: 1.5;
+  }
+  
+.internal-ul {
+	display: flex;
+}
+
+.ui-menu .ui-menu-item {
+	padding-left: 15px;
+	padding-bottom: 5px;
 }

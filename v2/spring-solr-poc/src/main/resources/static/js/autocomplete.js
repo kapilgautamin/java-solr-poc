@@ -1,22 +1,44 @@
 $(function () {
-   var suggestionsAction = window.location.origin + "/suggestions";
-   console.log(suggestionsAction);
+   var suggestionsAction = window.location.origin + "/api/search/auto-complete";
 
-   $("#form-search").autocomplete({
+   $.widget( "custom.catcomplete", $.ui.autocomplete, {
+      _create: function() {
+        this._super();
+        this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
+      },
+      _renderMenu: function( ul, items ) {
+        var that = this, currentCategory = "";
+
+        $.each( items, function( index, item ) {
+          var li;
+          
+          if ( item.header != currentCategory ) {
+          	var autoCompleteItem = "<li class='ui-autocomplete-category'>" + item.header + "</li>";
+          	
+          	$.each(item.results, function (data, value) {
+          		var title = value.title;
+          		var ariaLabel = "aria-label='" + item.header + " : " + title + "'";
+        		autoCompleteItem = autoCompleteItem + "<li " + ariaLabel + ">" + title + "</li>";
+        	})
+          	
+            ul.append(autoCompleteItem);
+            currentCategory = item.header;
+          }
+          
+          li = that._renderItemData( ul, item );          
+        });
+        
+      }
+    });
+   
+   $("#search").catcomplete({
       minLength: 2,
       source: function (request, response) {
-
          $.post(suggestionsAction, {
-            content: $("#form-search").val()
+            content: $("#search").val()
          }, function (data, status) {
             response(data);
          });
-
       }
-   }).autocomplete( "instance" )._renderItem = function( ul, item ) {
-      console.log(item);
-      return $( "<li>" )
-        .append( "<div>" + item.firstName + " "+ item.lastName + "</div>" )
-        .appendTo( ul );
-    };
+   });
 });

@@ -8,6 +8,6 @@ import org.springframework.data.solr.repository.SolrCrudRepository;
 import com.solr.poc.documents.PostDocuments;
 
 public interface PostsRepository extends SolrCrudRepository<PostDocuments, Integer> {
-	@Highlight(prefix = "<em>", postfix = "</em>")
+	@Highlight(prefix = "<b>", postfix = "</b>")
 	HighlightPage<PostDocuments> findByTitle(String title, Pageable page);
 }
