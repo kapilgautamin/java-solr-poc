@@ -28,4 +28,7 @@ public class PostDocuments {
 	
 	@Indexed(value = "CompleteDescription", name = "CompleteDescription")
 	private String completeDescription;
+	
+	@Indexed(value = "BlogId", name = "BlogId", stored = false)
+	private int blogId;
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.solr.poc.documents.CategoriesDocument;
+import com.solr.poc.models.AutocompleteResultsModel;
 import com.solr.poc.services.SearchService;
 
 @RestController
@@ -20,9 +20,9 @@ public class SearchController {
 	private SearchService _searchService;
 	
 	@RequestMapping("/auto-complete/{term}")
-	public ResponseEntity<List<CategoriesDocument>> getAutoCompleteResults(@PathVariable String term, Pageable page)
+	public ResponseEntity<List<AutocompleteResultsModel>> getAutoCompleteResults(@PathVariable String term, Pageable page)
 	{
-		var categories = _searchService.getAutoCompleteResults(term, page);
-		return new ResponseEntity<List<CategoriesDocument>>(categories, HttpStatus.OK);
+		var results = _searchService.getAutoCompleteResults(term, page);
+		return new ResponseEntity<List<AutocompleteResultsModel>>(results, HttpStatus.OK);
 	}
 }
