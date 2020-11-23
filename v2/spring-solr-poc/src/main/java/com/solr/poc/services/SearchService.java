@@ -45,8 +45,8 @@ public class SearchService {
 	
 	public List<AutocompleteResultsModel> getAutoCompleteResults(String term, Pageable page)
 	{
-		testingnew(term);
-		testing(term);
+		// testingnew(term);
+		// testing(term);
 		
 		List<AutocompleteResultsModel> results = new ArrayList<AutocompleteResultsModel>();
 		
@@ -72,6 +72,7 @@ public class SearchService {
 				results.add(resultsModel);
 			}
 		}
+		
 		return results;
 	}
 	
@@ -80,7 +81,8 @@ public class SearchService {
 		final SolrClient client = _solrTemplate.getSolrClient();
 
 		final Map<String, String> queryParamMap = new HashMap<String, String>();
-		queryParamMap.put("hl", "on");
+		queryParamMap.put("q", term);
+		queryParamMap.put("hl", "true");
 		queryParamMap.put("hl.simple.pre", "<b>");
 		queryParamMap.put("hl.simple.post", "<b>");
 		queryParamMap.put("hl.fl", "*");
@@ -101,8 +103,11 @@ public class SearchService {
 		SolrQuery params = prepareQuery(term);
 		var solrClient = _solrTemplate.getSolrClient();
 		try {
+			var pingResponse = solrClient.ping("posts");
+			
 			final QueryResponse response = solrClient.query("posts", params);
 			var documents = response.getResults();
+			var highligting = response.getHighlighting();
 			
 			for (SolrDocument solrDocument : documents) {
 				var test = solrDocument;
@@ -116,10 +121,15 @@ public class SearchService {
 	
 	private SolrQuery prepareQuery(String queryTerm) {
 	    SolrQuery queryParams = new SolrQuery();
-	    queryParams.set(CommonParams.Q, queryTerm);
-	    queryParams.setHighlight(true).setHighlightSnippets(1);
-	    queryParams.setParam("hl.fl", "*");
-	    queryParams.setParam("hl.fragsize", "0");
+	    queryParams.setQuery(queryTerm);
+	    // queryParams.set(CommonParams.Q, queryTerm);
+	    
+	    queryParams
+	    .setHighlight(true)
+	    .setHighlightSnippets(1)
+	    .setHighlightSimplePre("<b>")
+	    .setHighlightSimplePost("</b>");
+	    
 	    return queryParams;
 	}
 	
